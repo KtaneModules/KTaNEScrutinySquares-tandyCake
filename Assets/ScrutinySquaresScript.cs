@@ -250,7 +250,7 @@ public class ScrutinySquaresScript : MonoBehaviour {
     IEnumerator ProcessTwitchCommand (string command)
     {
         command = command.Trim().ToUpperInvariant();
-        if (Regex.IsMatch(command, @"^U(P)?|R(IGHT)?|D(OWN)?|L(EFT)?$"))
+        if (Regex.IsMatch(command, @"^(U(P)?|R(IGHT)?|D(OWN)?|L(EFT)?)$"))
         {
             yield return null;
             arrows["URDL".IndexOf(command[0])].OnInteract();
