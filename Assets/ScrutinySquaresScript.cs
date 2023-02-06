@@ -69,6 +69,8 @@ public class ScrutinySquaresScript : MonoBehaviour {
     {
         MonoRandom rng = Ruleseed.GetRNG();
         SquareColor[,] table = new SquareColor[25,4];
+        for (int skip = 0; skip < 25; skip++)
+            rng.Next(0, 2);
         for (int curCell = 0; curCell < 25; curCell++)
         {
             bool isValid = true;
@@ -84,12 +86,12 @@ public class ScrutinySquaresScript : MonoBehaviour {
                     isValid = false;
             }
             if (!isValid || table[curCell, 1] == table[curCell, 2] ||
-                (table[curCell, 1] == SquareColor.White && table[curCell, 2] == SquareColor.Yellow) ||
-                (table[curCell, 1] == SquareColor.Yellow && table[curCell, 2] == SquareColor.White) ||
-                (table[curCell, 1] == SquareColor.Pink && table[curCell, 2] == SquareColor.Red) ||
-                (table[curCell, 1] == SquareColor.Red && table[curCell, 2] == SquareColor.Pink) ||
-                (table[curCell, 1] == SquareColor.Green && table[curCell, 2] == SquareColor.Cyan) ||
-                (table[curCell, 1] == SquareColor.Cyan && table[curCell, 2] == SquareColor.Green)) 
+                (table[curCell, 1] == SquareColor.White && table[curCell, 2] == SquareColor.Yellow) || (table[curCell, 1] == SquareColor.White && table[curCell, 3] == SquareColor.Yellow) || (table[curCell, 2] == SquareColor.White && table[curCell, 3] == SquareColor.Yellow) ||
+                (table[curCell, 1] == SquareColor.Yellow && table[curCell, 2] == SquareColor.White) || (table[curCell, 1] == SquareColor.Yellow && table[curCell, 3] == SquareColor.White) || (table[curCell, 2] == SquareColor.Yellow && table[curCell, 3] == SquareColor.White) ||
+                (table[curCell, 1] == SquareColor.Pink && table[curCell, 2] == SquareColor.Red) || (table[curCell, 1] == SquareColor.Pink && table[curCell, 3] == SquareColor.Red) || (table[curCell, 2] == SquareColor.Pink && table[curCell, 3] == SquareColor.Red) ||
+                (table[curCell, 1] == SquareColor.Red && table[curCell, 2] == SquareColor.Pink) || (table[curCell, 1] == SquareColor.Red && table[curCell, 3] == SquareColor.Pink) || (table[curCell, 2] == SquareColor.Red && table[curCell, 3] == SquareColor.Pink) ||
+                (table[curCell, 1] == SquareColor.Green && table[curCell, 2] == SquareColor.Cyan) || (table[curCell, 1] == SquareColor.Green && table[curCell, 3] == SquareColor.Cyan) || (table[curCell, 2] == SquareColor.Green && table[curCell, 3] == SquareColor.Cyan) ||
+                (table[curCell, 1] == SquareColor.Cyan && table[curCell, 2] == SquareColor.Green) || (table[curCell, 1] == SquareColor.Cyan && table[curCell, 3] == SquareColor.Green) || (table[curCell, 2] == SquareColor.Cyan && table[curCell, 3] == SquareColor.Green)) 
             {
                 curCell--;
             }
@@ -97,7 +99,7 @@ public class ScrutinySquaresScript : MonoBehaviour {
         for (int i = 0; i < 25; i++)
         {
             grid[i] = new SquareInfo(table[i, 0], table[i, 1], table[i, 2], table[i, 3]);
-            //Log(grid[i].ToString());
+            Log(grid[i].ToString());
         }
     }
 
