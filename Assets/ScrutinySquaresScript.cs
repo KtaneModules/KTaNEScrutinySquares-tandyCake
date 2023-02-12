@@ -89,7 +89,11 @@ public class ScrutinySquaresScript : MonoBehaviour {
                 (table[curCell, 1] == SquareColor.Pink && table[curCell, 2] == SquareColor.Red) ||
                 (table[curCell, 1] == SquareColor.Red && table[curCell, 2] == SquareColor.Pink) ||
                 (table[curCell, 1] == SquareColor.Green && table[curCell, 2] == SquareColor.Cyan) ||
-                (table[curCell, 1] == SquareColor.Cyan && table[curCell, 2] == SquareColor.Green)) 
+                (table[curCell, 1] == SquareColor.Cyan && table[curCell, 2] == SquareColor.Green) ||
+                (table[curCell, 1] == SquareColor.Yellow && table[curCell, 2] == SquareColor.Cyan) ||
+                (table[curCell, 1] == SquareColor.Cyan && table[curCell, 2] == SquareColor.Yellow) ||
+                (table[curCell, 1] == SquareColor.White && table[curCell, 2] == SquareColor.Cyan) ||
+                (table[curCell, 1] == SquareColor.Cyan && table[curCell, 2] == SquareColor.White))
             {
                 curCell--;
             }
